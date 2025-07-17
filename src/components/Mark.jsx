@@ -140,7 +140,8 @@ const Mark = () => {
                                         {output.subjects.map((subject, index) => (
                                             <li key={index} className="list-group-item">
                                                 <strong>{subject.name}</strong><br />
-                                                Internal: {subject.internal} | Semester: {subject.semester} <br />
+                                                Internal: {subject.internal}  | Total Internal: 40  <br/>
+                                                Semester: {subject.semester}  |  Total Semester: 60 <br />
                                                 Total: {subject.total} | Grade: {subject.grade}
                                             </li>
                                         ))}
