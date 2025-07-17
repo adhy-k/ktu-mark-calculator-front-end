@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 const Mark = () => {
+    const [view, changeView] = useState(false)
     const [input, changeInput] = useState(
         {
 
@@ -61,7 +62,8 @@ const Mark = () => {
             (response) => {
                 changeOutput(response.data)
             }
-        ).catch()
+        ).catch(err => console.log("Error:", err))
+        changeView(true)
     }
 
     return (
@@ -124,8 +126,11 @@ const Mark = () => {
                             </div>
                             <div className="col-12 col-sm-12 col-md-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <button className="btn btn-primary" onClick={readInput}>Calculate</button>
+
                             </div>
-                            <div className="col-12 col-sm-12 col-md-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            {
+                                view&&
+                                <div className="col-12 col-sm-12 col-md-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                                 <div class="card">
                                     <div class="card-header">Name: {output.name}</div>
                                     <div class="card-header">Reg Number: {output.regno}</div>
@@ -145,6 +150,7 @@ const Mark = () => {
 
                                 </div>
                             </div>
+                            }
                         </div>
                     </div>
                 </div>
